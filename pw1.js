@@ -185,20 +185,60 @@ pseudo code:
 */
 // let today = new Date();
 
+// ----> solved by me
 
-for (let i = 0; i < students.length; i++) {
-    let today = new Date();
-    let birthDate = students[i].dob;
-    let age = today.getFullYear() - birthDate.getFullYear();
-    // let m = today.getMonth() - birthDate.getMonth();
-    if (birthDate.getFullYear() <= 0) 
-    {
-        age-1;
+// for (let i = 0; i < students.length; i++) {
+//     let today = new Date();
+//     let birthDate = students[i].dob;
+//     let age = today.getFullYear() - birthDate.getFullYear();
+
+//     let todayMonth = today.getMonth()
+//     let birthdayMonth = birthDate.getMonth();
+//     if (todayMonth < birthdayMonth) {
+//         age - 1;
+//     }
+//     console.log(students[i].name + "'s age is " + age + " years");
+// }
+// ----> solved by ma'am.
+
+function calculateAge(dateOfBirth) {
+    let dobYear = dateOfBirth.getFullYear();
+    let todayYear = new Date().getFullYear();
+    let age = todayYear - dobYear;
+
+    let dobMonth = dateOfBirth.getMonth();
+    let todayMonth = new Date().getMonth();
+
+    if (todayMonth < dobMonth) {
+        age--;
+    } else if (todayMonth === dobMonth) {
+
+        let todayDate = new Date().getDate();
+        let dobDate = dateOfBirth.getdate();
+
+        if (todayDate < dobDate) {
+            age--;
+        }
     }
-        console.log(students[i].name + "'s " + "'s age is " + age + " years");
+    return age;
 }
+for (let i = 0; i < students.length; i++) {
+    let studentAge = calculateAge(students[i].dob);
+    
+    console.log(`${students[i].name}'s age is ${studentAge} years`);
+}
+
+
 // 10. Print the name of the oldest student
 
-// dob: new Date("01-24-1972"),
-// // 10.
-// let biggestAgeStudentIndex = 0;
+let oldestStudent = students[0];
+for (let i = 1; i < students.length; i++) {
+    let oldestStudentAge = calculateAge(oldestStudents.dob);
+    let currentStudentAge = calculateAge(students[i].dob); 
+
+    if (currentStudentAge > oldestStudentAge) {
+        oldestStudent = students[i];
+    }
+}
+console.log(`oldest student is: ${oldestStudent.name}`);
+
