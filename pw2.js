@@ -189,11 +189,11 @@ for (let i = 0; i < videos.length; i++) {
 // }
 
 // 6. Print titles of all "Educational" videos
-// for (let i = 0; i < videos.length; i++) {
-//     if (videos[i].category == "Education") {
-//         console.log("Title: " + videos[i].title)
-//     }
-// }
+for (let i = 0; i < videos.length; i++) {
+    if (videos[i].category == "Education") {
+        console.log("Title: " + videos[i].title)
+    }
+}
 
 // 7. Print titles of all videos with tag "Javascript"
 for (let i = 0; i < videos.length; i++) {
@@ -204,14 +204,13 @@ for (let i = 0; i < videos.length; i++) {
 
 // 8. Print titles of all videos with HD feature
 for (let i = 0; i < videos.length; i++) {
-    if (videos[i].features["2"] == "HD") {
+    if (videos[i].features[2] == "HD") {
         console.log("Title: " + videos[i].title)
     }
 } // problem ---> if an item placed at diff index then how to get
 
 // 13. Sort the array in ascending order of number of views and print the titles
-for (let i = 0; i < videos.length; i++) {
-        // if (videos[i].viewCount.sort()) {
-            console.log(videos[i].viewCount.sort()+"Title: " + videos[i].title)
-        
-    }
+// for (let i = 0; i < videos.length; i++) {
+//     // if (videos[i].viewCount.sort()) {}
+//     console.log(videos[i].viewCount.sort() + "Title: " + videos[i].title)
+// }
